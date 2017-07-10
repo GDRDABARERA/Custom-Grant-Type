@@ -1,0 +1,192 @@
+<!--
+  ~ Copyright (c) 2015, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~
+  ~ WSO2 Inc. licenses this file to you under the Apache License,
+  ~ Version 2.0 (the "License"); you may not use this file except
+  ~ in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied.  See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <groupId>org.wso2.is</groupId>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>custom-grant</artifactId>
+    <version>1.0.0</version>
+    <packaging>bundle</packaging>
+    <name>OAuth 2.0 Custom Grant</name>
+    <url>http://maven.apache.org</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.oltu.oauth2</groupId>
+            <artifactId>org.apache.oltu.oauth2.client</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        
+        <!--
+        <dependency>
+	    Rajeev commented this
+        
+            <groupId>org.wso2.carbon.identity</groupId>
+            <artifactId>org.wso2.carbon.identity.oauth</artifactId>
+
+            <version>5.0.7</version> 
+         
+        </dependency>
+        -->
+        <dependency>
+            <groupId>org.wso2.carbon.identity.inbound.auth.oauth2</groupId>
+            <artifactId>org.wso2.carbon.identity.oauth</artifactId>
+           <version>5.3.4</version> 
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon</groupId>
+            <artifactId>org.wso2.carbon.user.core</artifactId>
+            <!-- Rajeev commented this
+            <version>4.4.3</version> -->
+            <version>4.4.11</version>
+        </dependency>
+        
+        
+        
+        
+        
+        <!-- Rajeev : From here Added dependencies -->
+        
+        <dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.5.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.5.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${version.spring}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${version.spring}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${version.spring}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${version.spring}</version>
+		</dependency>
+        
+        <!-- Rajeev : Till here Added dependencies -->
+        
+        
+        
+        
+        
+        
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>wso2-nexus</id>
+            <name>WSO2 internal Repository</name>
+            <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <version>1.4.0</version>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Name>${project.artifactId}</Bundle-Name>
+                        <Import-Package>
+                            org.apache.commons.logging;version="[1.2,2)",
+                            org.wso2.carbon.identity.core.util;version="[5.7.0,6)",
+                            org.wso2.carbon.identity.oauth.config;version="[5.3.0,6)",
+                            org.wso2.carbon.identity.oauth2.dto;version="[5.3.0,6)",
+                            org.wso2.carbon.identity.oauth2.token;version="[5.3.0,6)",
+                            org.apache.commons.lang; version="2.6.0",
+                            org.wso2.carbon.identity.oauth2.authz; version="5.3.4"
+                            org.wso2.carbon.identity.oauth2.*;version="[5.3.0,6)",
+                            org.apache.axiom.util.base64; version="1.2.11.wso2v11",
+                            org.apache.commons.io; version="2.4.0",
+                            org.apache.oltu.oauth2.common.exception; version="1.0.0.wso2v3",
+                            org.apache.oltu.oauth2.common.validators; version="1.0.0.wso2v3",
+                            org.wso2.carbon.identity.application.authentication.framework.model; version="5.7.5",
+                            org.wso2.carbon.identity.oauth.cache; version="5.3.4",
+                            org.wso2.carbon.identity.oauth2; version="5.3.4",
+                            org.wso2.carbon.identity.oauth2.dao; version="5.3.4",
+                            org.wso2.carbon.identity.oauth2.model; version="5.3.4",
+                            org.wso2.carbon.identity.oauth2.token.handlers.grant; version="5.3.4",
+                            org.wso2.carbon.identity.oauth2.util; version="5.3.4",
+                            org.wso2.carbon.user.core; version="4.4.11"
+
+                        </Import-Package>
+                        <Export-Package>
+                            org.wso2.sample.identity.oauth2.grant.refreshgrant;version="1.0.0"
+                        </Export-Package>
+                        <DynamicImport-Package>*</DynamicImport-Package>
+
+                        <Embed-Dependency>*;scope=compile|runtime;inline=true;artifactId=jackson-core|jackson-databind|jackson-databind|jackson-annotations|
+                            jackson-core-asl|org.codehaus.jackson|spring-core|spring-beans|spring-context|spring-web</Embed-Dependency>
+                        <Embed-Transitive>true</Embed-Transitive>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <properties>
+		<version.spring>3.2.9.RELEASE</version.spring>
+	</properties>
+
+</project>

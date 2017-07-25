@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2017, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~ Copyright (c) 2015, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
   ~
   ~ WSO2 Inc. licenses this file to you under the Apache License,
   ~ Version 2.0 (the "License"); you may not use this file except
@@ -32,7 +32,18 @@
             <artifactId>org.apache.oltu.oauth2.client</artifactId>
             <version>1.0.0</version>
         </dependency>
+        
+        <!--
+        <dependency>
+	    Rajeev commented this
+        
+            <groupId>org.wso2.carbon.identity</groupId>
+            <artifactId>org.wso2.carbon.identity.oauth</artifactId>
 
+            <version>5.0.7</version> 
+         
+        </dependency>
+        -->
         <dependency>
             <groupId>org.wso2.carbon.identity.inbound.auth.oauth2</groupId>
             <artifactId>org.wso2.carbon.identity.oauth</artifactId>
@@ -46,9 +57,16 @@
         <dependency>
             <groupId>org.wso2.carbon</groupId>
             <artifactId>org.wso2.carbon.user.core</artifactId>
+            <!-- Rajeev commented this
+            <version>4.4.3</version> -->
             <version>4.4.11</version>
         </dependency>
         
+        
+        
+        
+        
+        <!-- Rajeev : From here Added dependencies -->
         
         <dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -97,7 +115,13 @@
 			<version>${version.spring}</version>
 		</dependency>
         
-     
+        <!-- Rajeev : Till here Added dependencies -->
+        
+        
+        
+        
+        
+        
     </dependencies>
 
     <repositories>

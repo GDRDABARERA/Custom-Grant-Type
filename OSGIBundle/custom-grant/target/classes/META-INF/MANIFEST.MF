@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Export-Package: org.wso2.sample.identity.oauth2.grant.password;uses:="
+ org.apache.commons.logging,org.wso2.carbon.identity.oauth2,org.wso2.c
+ arbon.identity.oauth2.dto,org.wso2.carbon.identity.oauth2.token.handl
+ ers.grant,org.wso2.carbon.identity.oauth2.token";version="1.0.0",org.
+ wso2.sample.identity.oauth2.grant.mobile;uses:="org.apache.commons.lo
+ gging,org.wso2.carbon.identity.oauth2,org.wso2.carbon.identity.oauth2
+ .model,org.wso2.carbon.identity.oauth2.dto,org.wso2.carbon.identity.o
+ auth2.token.handlers.grant,org.wso2.carbon.identity.oauth2.token";ver
+ sion="1.0.0"
+Built-By: wso2dinali
+Tool: Bnd-0.0.238
+Bundle-Name: custom-grant
+Created-By: Apache Maven Bundle Plugin
+DynamicImport-Package: *
+Bundle-Version: 1.0.0
+Build-Jdk: 1.7.0_80
+Bnd-LastModified: 1500952485022
+Bundle-ManifestVersion: 2
+Import-Package: org.apache.commons.lang;version="2.6.0",org.apache.com
+ mons.logging;version="[1.2,2)",org.wso2.carbon.identity.core.util;ver
+ sion="[5.7.0,6)",org.wso2.carbon.identity.oauth2;version="[5.3.0,6)",
+ org.wso2.carbon.identity.oauth2.dto;version="[5.3.0,6)",org.wso2.carb
+ on.identity.oauth2.model;version="[5.3.0,6)",org.wso2.carbon.identity
+ .oauth2.token;version="[5.3.0,6)",org.wso2.carbon.identity.oauth2.tok
+ en.handlers.grant;version="[5.3.0,6)",org.wso2.carbon.user.core;versi
+ on="4.4.11"
+Bundle-SymbolicName: custom-grant
+
